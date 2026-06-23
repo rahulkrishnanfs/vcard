@@ -9,21 +9,22 @@ const modules = import.meta.glob('../assets/gallery/*.jpg', {
 })
 
 const captions = [
-  'Tech conference networking',
-  'Speaking at AWS Community Day',
-  'Radio interview & podcast',
-  'Cursor Hackathon in the press',
-  'OpenUK 2026 Honour 🏅',
-  'Featured in Northamptonshire Telegraph',
-  'Cursor Hackathon · University of Northampton',
-  'Cursor Northampton volunteers',
-  'Hosting the Cursor Hackathon',
-  'DevOps & Cloud meetup talk',
-  'COEP FOSSMeet 2018',
-  "COEP FOSSMeet '21 — Intro to Kubernetes",
-  'Innovia 2k18 — Docker 101',
-  'Memory Engineering for AI Agents — on stage',
-  'Cursor Northampton Evening Hackathon 2026 @UON',
+  'From Prompt to Persistence — Daventry Coding Club',
+  'Elevate Northampton AI COP — MongoDB Developer Day',
+  'AWS GenAI & Data Day, London',
+  'Cursor AI Hackathon — featured by NNBN',
+  'TEDx Northampton',
+  'MongoDB Community Champions',
+  'MongoDB.local — with the community',
+  'Civo Navigate London',
+  'Google Cloud Security event',
+  'Google & Firebase community event',
+  'Speaking at The Charles Bradlaugh, Northampton',
+  'Community dinner & networking',
+  'Community meetup & networking',
+  'Tech community social',
+  'Recognised at Barclaycard',
+  'Kubernetes Meetup, Chennai',
 ]
 
 const images = Object.keys(modules)
