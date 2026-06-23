@@ -3,7 +3,6 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Recognition from './components/Recognition'
 import Specialities from './components/Specialities'
-import Skills from './components/Skills'
 import Certifications from './components/Certifications'
 import Speaking from './components/Speaking'
 import OpenSource from './components/OpenSource'
@@ -22,7 +21,6 @@ export default function App() {
         <About />
         <Recognition />
         <Specialities />
-        <Skills />
         <Certifications />
         <Speaking />
         <OpenSource />
