@@ -24,6 +24,20 @@ export const profile = {
   ],
 }
 
+export const cursorNorthampton = {
+  badge: 'Now building',
+  name: 'Cursor Northampton',
+  tagline: 'I’m building the UK’s Cursor AI developer community — right here in Northampton.',
+  text: 'As a Cursor Ambassador, I run hackathons, meetups and hands-on sessions bringing together developers, founders and AI enthusiasts to build with agentic AI. Come learn, ship and grow with us.',
+  link: 'https://cursor-northampton.rahulra.dev/',
+  linkLabel: 'Visit the community',
+  highlights: [
+    { num: '120+', label: 'Builders at our hackathon' },
+    { num: 'Monthly', label: 'Meetups & hack nights' },
+    { num: 'UK', label: 'Cursor Ambassador' },
+  ],
+}
+
 export const about = [
   'Rahulkrishnan R A is an Assistant Vice President at Barclays and a Senior Platform Engineer based in Northamptonshire, UK. He is a Cursor Ambassador for the UK developer community, an OpenUK 2026 Honouree, and an active open-source contributor across impactful projects including Debian, Kubernetes and OpenEBS.',
   'Rahul is deeply passionate about GenAI and Agentic AI — exploring how modern LLMs, context engineering and agentic workflows can transform developer experience and accelerate real-world innovation. He continually experiments with next-generation developer tools and AI-assisted automation to push the boundaries of what teams can build.',

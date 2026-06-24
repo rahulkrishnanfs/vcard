@@ -33,6 +33,10 @@ export default function NavBar() {
                 {l.external && <i className="bi bi-arrow-up-right ms-1" style={{ fontSize: '0.7rem' }}></i>}
               </Nav.Link>
             ))}
+            <Nav.Link href="#cursor-northampton" className="nav-link-cursor">
+              <span className="live-dot" aria-hidden="true"></span>
+              Cursor NN
+            </Nav.Link>
             <a href="#contact" className="btn btn-glow btn-sm ms-lg-3 mt-2 mt-lg-0">
               Let’s talk
             </a>

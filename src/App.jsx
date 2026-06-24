@@ -1,5 +1,6 @@
 import NavBar from './components/NavBar'
 import Hero from './components/Hero'
+import CursorNorthampton from './components/CursorNorthampton'
 import About from './components/About'
 import Recognition from './components/Recognition'
 import Specialities from './components/Specialities'
@@ -18,6 +19,7 @@ export default function App() {
       <NavBar />
       <main>
         <Hero />
+        <CursorNorthampton />
         <About />
         <Recognition />
         <Specialities />
