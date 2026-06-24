@@ -90,6 +90,17 @@ export default function Speaking() {
                     <img src={s.photo} alt={`${s.event} — ${s.title}`} loading="lazy" />
                   </a>
                 )}
+                {s.link && (
+                  <a
+                    className="recognition-link mt-2 d-inline-flex"
+                    href={s.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {s.linkLabel || 'View event'}
+                    <i className="bi bi-arrow-up-right ms-1"></i>
+                  </a>
+                )}
               </>
             )
             return (

@@ -127,7 +127,7 @@ export const speaking = [
   { event: 'Elevate AI Northampton', meta: '2026', title: 'Context Engineering', photo: elevateAiContextImg },
   { event: 'Developer Day at Barclays', meta: '2026', title: 'Internal Developer Experience', photo: barclaysDeveloperDayImg },
   { event: 'Docker & Kubernetes Meetups', meta: '2017', title: 'Containers & Orchestration' },
-  { event: 'Mini Debian Conference', meta: '2016', title: 'Open Source & Debian' },
+  { event: 'Mini Debian Conference', meta: 'Pune · 2016', title: 'Open Source & Debian', link: 'https://in2016.mini.debconf.org/', linkLabel: 'View conference' },
 ]
 
 export const community = [

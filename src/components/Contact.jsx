@@ -11,9 +11,13 @@ export default function Contact() {
           <h2 className="section-title mb-3">
             Let’s build something <span className="gradient-text">resilient</span>.
           </h2>
-          <p className="text-muted-2 mx-auto mb-4" style={{ maxWidth: 560 }}>
+          <p className="text-muted-2 mx-auto mb-3" style={{ maxWidth: 560 }}>
             Whether it’s platform engineering, DevOps, GenAI or a speaking opportunity —
             I’d love to hear from you.
+          </p>
+          <p className="availability-badge mb-4">
+            <i className="bi bi-mortarboard-fill me-2"></i>
+            Open to collaborate on <strong>GenAI training &amp; workshops</strong>
           </p>
           <div className="contact-actions mb-4">
             <a href={`mailto:${profile.email}`} className="btn btn-glow">

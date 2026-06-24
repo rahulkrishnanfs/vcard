@@ -58,6 +58,28 @@ a {
   margin-bottom: 0.6rem;
 }
 
+#speaking .section-eyebrow {
+  font-size: 0.95rem;
+  letter-spacing: 0.26em;
+}
+
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+}
+
+.availability-badge strong {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 .section-title {
   font-weight: 800;
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);

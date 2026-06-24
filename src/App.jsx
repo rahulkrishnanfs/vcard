@@ -22,11 +22,11 @@ export default function App() {
         <CursorNorthampton />
         <About />
         <Recognition />
+        <Speaking />
+        <Community />
         <Specialities />
         <Certifications />
-        <Speaking />
         <OpenSource />
-        <Community />
         <Leadership />
         <Gallery />
         <Contact />
