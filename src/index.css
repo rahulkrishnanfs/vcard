@@ -11,6 +11,9 @@
   --text-muted: #8c8c95;
   --border: rgba(255, 255, 255, 0.12);
   --shadow: 0 22px 60px rgba(0, 0, 0, 0.75);
+  --green: #00c16e;
+  --green-strong: #00d97a;
+  --green-soft: rgba(0, 193, 110, 0.14);
 }
 
 * {
@@ -263,10 +266,12 @@ a {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.btn-glow:hover {
+.btn-glow:hover,
+.btn-glow:focus-visible {
   transform: translateY(-2px);
-  color: #0a0a0a;
-  box-shadow: 0 14px 36px rgba(255, 255, 255, 0.3);
+  background: var(--green);
+  color: #04110b;
+  box-shadow: 0 14px 36px var(--green-soft);
 }
 
 .contact-actions {
@@ -288,9 +293,9 @@ a {
 }
 
 .btn-coffee:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--text);
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green-strong);
   transform: translateY(-2px);
 }
 
@@ -305,9 +310,23 @@ a {
 }
 
 .btn-outline-soft:hover {
-  border-color: var(--accent);
-  background: var(--accent-soft);
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green-strong);
+}
+
+.btn-outline-light {
+  border-color: var(--border);
   color: var(--text);
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus,
+.btn-outline-light:focus-visible,
+.btn-outline-light:active {
+  border-color: var(--green);
+  background: var(--green-soft);
+  color: var(--green-strong);
 }
 
 .hero-visual {
