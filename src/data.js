@@ -1,3 +1,7 @@
+import nliveRadioImg from './assets/nlive-radio.png'
+import cursorDaventryImg from './assets/cursor-daventry-meetup.png'
+import cursorHackathonImg from './assets/cursor-hackathon.png'
+
 export const profile = {
   name: 'Rahulkrishnan R A',
   role: 'AVP & Sr Platform Engineer @ Barclays',
@@ -96,13 +100,14 @@ export const leadership = [
 
 export const speaking = [
   {
-    event: 'Daventry Coding Club',
-    meta: '2026',
-    title: 'Memory Engineering for AI Agents',
+    event: 'MongoDB.local London',
+    meta: 'Old Billingsgate, London, UK · 2026',
+    title: 'From prompts to persistence: Agent memory, context, and memory engineering',
     featured: true,
-    link: 'https://www.youtube.com/watch?v=GIhtQaxhwAc&list=PL4RCxklHWZ9tH01MTlChYwUqN8Cm2tl2r&index=18&t=1011s',
+    link: 'https://web.cvent.com/event/e2f806d5-42b5-4858-b993-76502f7fae5f/websitePage:dd8ce793-265b-4455-b826-1857079f87c7',
+    recording: 'https://www.youtube.com/watch?v=GIhtQaxhwAc&list=PL4RCxklHWZ9tH01MTlChYwUqN8Cm2tl2r&index=18&t=1011s',
     summary:
-      'As AI systems evolve from simple prompt–response models to autonomous, goal-driven agents, memory becomes a first-class design concern. This talk explores how agents leverage context, short-term and long-term memory, and modern memory engineering patterns to reason, learn, and behave consistently over time — covering practical architectures and real-world examples of building reliable, stateful AI agents.',
+      'Discover how AI agents use memory to reason, adapt, and behave consistently, plus practical insights on designing stateful systems at scale.',
   },
   { event: 'MongoDB.local Conference', meta: 'London · 2026', title: 'LangGraph + MongoDB' },
   { event: 'Elevate AI Northampton', meta: '2026', title: 'Context Engineering' },
@@ -119,6 +124,7 @@ export const community = [
     text: 'A high-energy AI vibecoding hack night with Cursor & MiniMax — in collaboration with NN1 Dev Club, Barclays and the University of Northampton. 120+ builders shipped fast.',
     link: 'https://luma.com/cw8l2nhn',
     linkLabel: 'View event',
+    thumb: cursorHackathonImg,
   },
   {
     icon: 'bi-people-fill',
@@ -127,6 +133,7 @@ export const community = [
     text: 'An evening for Cursor users to build together at the Daventry Innovation Hub — credits, coffee and community.',
     link: 'https://luma.com/655mo00p',
     linkLabel: 'View event',
+    thumb: cursorDaventryImg,
   },
   {
     icon: 'bi-youtube',
@@ -136,6 +143,7 @@ export const community = [
     link: 'https://youtu.be/1UME77yS0Fo',
     linkLabel: 'Watch',
     thumb: 'https://img.youtube.com/vi/1UME77yS0Fo/hqdefault.jpg',
+    playable: true,
   },
   {
     icon: 'bi-broadcast',
@@ -144,6 +152,8 @@ export const community = [
     text: 'Went live on NLive Radio talking about the Cursor community and the Northampton AI hackathon.',
     link: 'https://player.autopod.xyz/1186497',
     linkLabel: 'Listen (from 00:30)',
+    thumb: nliveRadioImg,
+    playable: true,
   },
   {
     icon: 'bi-person-badge-fill',

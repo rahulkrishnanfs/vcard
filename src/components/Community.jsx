@@ -26,9 +26,11 @@ export default function Community() {
                     aria-label={`Watch: ${c.title}`}
                   >
                     <img src={c.thumb} alt={c.title} className="featured-thumb-img" loading="lazy" />
-                    <span className="play-btn">
-                      <i className="bi bi-play-fill"></i>
-                    </span>
+                    {c.playable && (
+                      <span className="play-btn">
+                        <i className="bi bi-play-fill"></i>
+                      </span>
+                    )}
                   </a>
                 ) : (
                   <span className="card-icon">

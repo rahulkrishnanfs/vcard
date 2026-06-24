@@ -31,12 +31,21 @@ export default function Speaking() {
                 <p className="text-muted-2" style={{ lineHeight: 1.7 }}>
                   {featured.summary}
                 </p>
-                <a href={featured.link} target="_blank" rel="noreferrer" className="btn btn-glow btn-sm mt-2">
-                  <i className="bi bi-play-circle-fill me-2"></i>Watch the talk
-                </a>
+                <div className="d-flex flex-wrap gap-2 mt-2">
+                  {featured.recording && (
+                    <a href={featured.recording} target="_blank" rel="noreferrer" className="btn btn-glow btn-sm">
+                      <i className="bi bi-play-circle-fill me-2"></i>Watch the talk
+                    </a>
+                  )}
+                  {featured.link && (
+                    <a href={featured.link} target="_blank" rel="noreferrer" className="btn btn-outline-light btn-sm">
+                      <i className="bi bi-calendar-event me-2"></i>View agenda
+                    </a>
+                  )}
+                </div>
               </Col>
               <Col lg={5}>
-                <a href={featured.link} target="_blank" rel="noreferrer" className="featured-thumb" aria-label="Watch the talk on YouTube">
+                <a href={featured.recording || featured.link} target="_blank" rel="noreferrer" className="featured-thumb" aria-label="Watch the talk on YouTube">
                   <img
                     src="https://img.youtube.com/vi/GIhtQaxhwAc/hqdefault.jpg"
                     alt={featured.title}
