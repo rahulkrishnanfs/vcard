@@ -44,11 +44,11 @@ export default function Recognition() {
           {items.map((item, i) => (
             <Col md={6} lg={4} key={item.title}>
               <Reveal className="recognition-card" delay={i * 100}>
-                <span className="recognition-badge">{item.badge}</span>
                 <div className="recognition-img-wrap">
                   <img src={item.img} alt={item.title} className="recognition-img" />
                 </div>
-                <h3 className="h5 fw-bold mt-3">{item.title}</h3>
+                <span className="recognition-badge">{item.badge}</span>
+                <h3 className="h5 fw-bold mt-2">{item.title}</h3>
                 <p className="text-muted-2 mb-0" style={{ fontSize: '0.94rem' }}>
                   {item.text}
                 </p>
