@@ -347,6 +347,17 @@
         text-align: center;
       }
 
+      /* ---------- MOBILE ---------- */
+      @media (max-width: 520px) {
+        .card {
+          height: auto;
+          min-height: var(--card-h);
+        }
+        .front {
+          gap: 0.16in;
+        }
+      }
+
       /* ---------- PRINT (single page, both sides) ---------- */
       @page {
         size: landscape;
