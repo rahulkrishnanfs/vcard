@@ -25,14 +25,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
       :root {
-        --bg-deep: #000000;
-        --bg-panel: #0b0b0d;
-        --bg-panel-2: #111114;
-        --text: #f6f6f7;
-        --text-muted: #8c8c95;
-        --border: rgba(255, 255, 255, 0.14);
-        --green: #b6f23c;
-        --green-strong: #ccf86f;
+        --bg-deep: #ffffff;
+        --bg-panel: #ffffff;
+        --bg-panel-2: #f6f7f4;
+        --text: #16161a;
+        --text-muted: #6c6c75;
+        --border: rgba(0, 0, 0, 0.14);
+        --green: #8ec51d;
+        --green-strong: #76a814;
+        --green-ink: #2f6b00;
         /* Standard 3.5in x 2in card + 0 bleed */
         --card-w: 3.5in;
         --card-h: 2in;
@@ -47,10 +48,7 @@
       body {
         margin: 0;
         font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
-        background: #1a1a1d;
-        background-image:
-          radial-gradient(circle at 15% 0%, rgba(182, 242, 60, 0.06), transparent 45%),
-          radial-gradient(circle at 85% 100%, rgba(255, 255, 255, 0.04), transparent 45%);
+        background: #ffffff;
         color: var(--text);
         min-height: 100vh;
         display: flex;
@@ -92,7 +90,7 @@
       }
       .btn-print:hover {
         transform: translateY(-1px);
-        box-shadow: 0 10px 30px rgba(182, 242, 60, 0.3);
+        box-shadow: 0 10px 30px rgba(142, 197, 29, 0.35);
       }
       .btn-print:disabled {
         opacity: 0.7;
@@ -103,7 +101,7 @@
       .btn-ghost {
         appearance: none;
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.04);
         color: var(--text);
         font-weight: 600;
         font-size: 0.9rem;
@@ -117,8 +115,8 @@
         transition: border-color 0.15s ease, color 0.15s ease;
       }
       .btn-ghost:hover {
-        border-color: var(--green);
-        color: var(--green);
+        border-color: var(--green-ink);
+        color: var(--green-ink);
       }
       .spin {
         display: inline-block;
@@ -145,7 +143,7 @@
         position: relative;
         background: var(--bg-deep);
         border: 1px solid var(--border);
-        box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+        box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
         color: var(--text);
       }
 
@@ -166,9 +164,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        background-image:
-          radial-gradient(circle at 100% 0%, rgba(182, 242, 60, 0.14), transparent 42%),
-          radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.05), transparent 45%);
       }
       .front::before {
         content: '';
@@ -205,7 +200,7 @@
         object-fit: cover;
         object-position: center top;
         border: 2px solid var(--green);
-        box-shadow: 0 8px 20px rgba(182, 242, 60, 0.28);
+        box-shadow: 0 8px 20px rgba(142, 197, 29, 0.3);
         flex-shrink: 0;
         align-self: flex-start;
         margin-top: -0.08in;
@@ -218,7 +213,7 @@
       }
       .honour strong {
         display: block;
-        color: var(--green);
+        color: var(--green-ink);
         font-size: 0.66rem;
         letter-spacing: 0.04em;
       }
@@ -236,7 +231,7 @@
         margin: 0.2rem 0 0;
       }
       .front .role .at {
-        color: var(--green);
+        color: var(--green-ink);
       }
       .pills {
         display: flex;
@@ -251,14 +246,14 @@
         padding: 0.16rem 0.5rem;
         border-radius: 999px;
         border: 1px solid var(--border);
-        background: rgba(255, 255, 255, 0.05);
+        background: rgba(0, 0, 0, 0.04);
         color: var(--text);
         white-space: nowrap;
       }
       .pill.accent {
-        border-color: rgba(182, 242, 60, 0.5);
-        background: rgba(182, 242, 60, 0.12);
-        color: var(--green-strong);
+        border-color: rgba(47, 107, 0, 0.4);
+        background: rgba(142, 197, 29, 0.28);
+        color: var(--green-ink);
       }
 
       /* ---------- BACK ---------- */
@@ -266,8 +261,6 @@
         padding: 0.26in 0.3in;
         display: flex;
         gap: 0.24in;
-        background-image:
-          radial-gradient(circle at 0% 0%, rgba(182, 242, 60, 0.1), transparent 45%);
       }
       .back-main {
         flex: 1;
@@ -289,10 +282,10 @@
       }
       a.contact-row:hover,
       a.contact-row:hover .muted {
-        color: var(--green);
+        color: var(--green-ink);
       }
       .contact-row i {
-        color: var(--green);
+        color: var(--green-ink);
         font-size: 0.82rem;
         width: 1rem;
         text-align: center;
@@ -322,10 +315,10 @@
         transition: color 0.15s ease;
       }
       .socials a:hover {
-        color: var(--green);
+        color: var(--green-ink);
       }
       .socials i {
-        color: var(--green);
+        color: var(--green-ink);
         font-size: 0.72rem;
       }
       .back-side {
@@ -471,7 +464,7 @@
           const hIn = cards.offsetHeight / 96
           const canvas = await html2canvas(cards, {
             scale: 4,
-            backgroundColor: '#1a1a1d',
+            backgroundColor: '#ffffff',
             useCORS: true,
             logging: false,
           })
