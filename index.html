@@ -10,16 +10,486 @@
       name="description"
       content="Rahulkrishnan R A — Sr Platform Engineer, OpenUK & Cursor Ambassador, OpenUK 2026 Honouree. DevOps, Cloud, Kubernetes & GenAI."
     />
+    <title>Rahulkrishnan R A · Business Card</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <title>Rahulkrishnan R A · Sr Platform Engineer</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+      :root {
+        --bg-deep: #000000;
+        --bg-panel: #0b0b0d;
+        --bg-panel-2: #111114;
+        --text: #f6f6f7;
+        --text-muted: #8c8c95;
+        --border: rgba(255, 255, 255, 0.14);
+        --green: #b6f23c;
+        --green-strong: #ccf86f;
+        /* Standard 3.5in x 2in card + 0 bleed */
+        --card-w: 3.5in;
+        --card-h: 2in;
+      }
+
+      * {
+        box-sizing: border-box;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        background: #1a1a1d;
+        background-image:
+          radial-gradient(circle at 15% 0%, rgba(182, 242, 60, 0.06), transparent 45%),
+          radial-gradient(circle at 85% 100%, rgba(255, 255, 255, 0.04), transparent 45%);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+        padding: 48px 16px 64px;
+      }
+
+      .toolbar {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .toolbar h1 {
+        font-size: 1rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        margin: 0;
+        color: var(--text-muted);
+      }
+      .btn-print {
+        appearance: none;
+        border: 1px solid var(--green);
+        background: var(--green);
+        color: #0a0a0a;
+        font-weight: 700;
+        font-size: 0.9rem;
+        font-family: inherit;
+        padding: 0.55rem 1.15rem;
+        border-radius: 999px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .btn-print:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 30px rgba(182, 242, 60, 0.3);
+      }
+      .btn-print:disabled {
+        opacity: 0.7;
+        cursor: progress;
+        transform: none;
+        box-shadow: none;
+      }
+      .btn-ghost {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.9rem;
+        font-family: inherit;
+        padding: 0.55rem 1.15rem;
+        border-radius: 999px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        transition: border-color 0.15s ease, color 0.15s ease;
+      }
+      .btn-ghost:hover {
+        border-color: var(--green);
+        color: var(--green);
+      }
+      .spin {
+        display: inline-block;
+        animation: spin 0.8s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+        justify-content: center;
+      }
+
+      .card {
+        width: var(--card-w);
+        height: var(--card-h);
+        border-radius: 14px;
+        overflow: hidden;
+        position: relative;
+        background: var(--bg-deep);
+        border: 1px solid var(--border);
+        box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6);
+        color: var(--text);
+      }
+
+      .card-label {
+        position: absolute;
+        top: -22px;
+        left: 4px;
+        font-size: 0.72rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 600;
+      }
+
+      /* ---------- FRONT ---------- */
+      .front {
+        padding: 0.26in 0.3in;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-image:
+          radial-gradient(circle at 100% 0%, rgba(182, 242, 60, 0.14), transparent 42%),
+          radial-gradient(circle at 0% 100%, rgba(255, 255, 255, 0.05), transparent 45%);
+      }
+      .front::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        background: linear-gradient(180deg, var(--green), var(--green-strong));
+      }
+      .front-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .monogram {
+        width: 0.62in;
+        height: 0.62in;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--green), var(--green-strong));
+        color: #0a0a0a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 1.5rem;
+        letter-spacing: -0.04em;
+        box-shadow: 0 8px 20px rgba(182, 242, 60, 0.28);
+      }
+      .avatar {
+        width: 0.66in;
+        height: 0.66in;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center top;
+        border: 2px solid var(--green);
+        box-shadow: 0 8px 20px rgba(182, 242, 60, 0.28);
+        flex-shrink: 0;
+        align-self: flex-start;
+        margin-top: -0.08in;
+      }
+      .honour {
+        text-align: right;
+        font-size: 0.6rem;
+        line-height: 1.25;
+        color: var(--text-muted);
+      }
+      .honour strong {
+        display: block;
+        color: var(--green);
+        font-size: 0.66rem;
+        letter-spacing: 0.04em;
+      }
+      .front .name {
+        font-size: 1.18rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.05;
+        margin: 0;
+      }
+      .front .role {
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        margin: 0.2rem 0 0;
+      }
+      .front .role .at {
+        color: var(--green);
+      }
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: 0.34rem;
+      }
+      .pill {
+        font-size: 0.56rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        padding: 0.16rem 0.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        white-space: nowrap;
+      }
+      .pill.accent {
+        border-color: rgba(182, 242, 60, 0.5);
+        background: rgba(182, 242, 60, 0.12);
+        color: var(--green-strong);
+      }
+
+      /* ---------- BACK ---------- */
+      .back {
+        padding: 0.26in 0.3in;
+        display: flex;
+        gap: 0.24in;
+        background-image:
+          radial-gradient(circle at 0% 0%, rgba(182, 242, 60, 0.1), transparent 45%);
+      }
+      .back-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.07in;
+        min-width: 0;
+      }
+      .contact-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.7rem;
+        color: var(--text);
+        line-height: 1.1;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      a.contact-row:hover,
+      a.contact-row:hover .muted {
+        color: var(--green);
+      }
+      .contact-row i {
+        color: var(--green);
+        font-size: 0.82rem;
+        width: 1rem;
+        text-align: center;
+        flex-shrink: 0;
+      }
+      .contact-row .muted {
+        color: var(--text-muted);
+      }
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0.02in 0;
+      }
+      .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.22rem 0.7rem;
+        font-size: 0.62rem;
+        color: var(--text-muted);
+      }
+      .socials a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.28rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .socials a:hover {
+        color: var(--green);
+      }
+      .socials i {
+        color: var(--green);
+        font-size: 0.72rem;
+      }
+      .back-side {
+        width: 1in;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.08in;
+        border-left: 1px solid var(--border);
+        padding-left: 0.22in;
+      }
+      .qr {
+        width: 0.92in;
+        height: 0.92in;
+        border-radius: 8px;
+        background: #ffffff;
+        padding: 4px;
+        display: block;
+      }
+      .qr-cap {
+        font-size: 0.52rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      /* ---------- PRINT (single page, both sides) ---------- */
+      @page {
+        size: landscape;
+        margin: 0.3in;
+      }
+      @media print {
+        body {
+          padding: 0;
+          gap: 0;
+          min-height: auto;
+          justify-content: center;
+        }
+        .toolbar,
+        .card-label {
+          display: none !important;
+        }
+        .cards {
+          gap: 0.3in;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .card {
+          box-shadow: none;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="toolbar">
+      <button class="btn-print" id="downloadBtn" onclick="downloadPdf()">
+        <i class="bi bi-download"></i> Download PDF
+      </button>
+      <button class="btn-ghost" onclick="window.print()">
+        <i class="bi bi-printer"></i> Print
+      </button>
+    </div>
+
+    <div class="cards">
+      <!-- FRONT -->
+      <div class="card front">
+        <span class="card-label">Front</span>
+        <div class="front-top">
+          <img class="avatar" src="/profile.jpg" alt="Rahulkrishnan R A" />
+          <div class="honour">
+            <strong>OpenUK 2026 Honour</strong>
+            Cursor &amp; OpenUK Ambassador
+          </div>
+        </div>
+        <div>
+          <h2 class="name">Rahulkrishnan R A</h2>
+          <p class="role">AVP &amp; Sr Platform Engineer <span class="at">@ Barclays</span></p>
+          <div class="pills">
+            <span class="pill accent">GenAI &amp; Agentic AI</span>
+            <span class="pill">Platform Engineering</span>
+            <span class="pill">Mentoring</span>
+            <span class="pill">Public Speaker</span>
+            <span class="pill">Consulting</span>
+            <span class="pill">Training</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BACK -->
+      <div class="card back">
+        <span class="card-label">Back</span>
+        <div class="back-main">
+          <a class="contact-row" href="mailto:rahulkrishnanfs@gmail.com" style="margin-top: 0.06in;">
+            <i class="bi bi-envelope-fill"></i>
+            <span>rahulkrishnanfs@gmail.com</span>
+          </a>
+          <a class="contact-row" href="https://rahulra.dev" target="_blank" rel="noopener">
+            <i class="bi bi-globe2"></i>
+            <span>rahulra.dev</span>
+          </a>
+          <a
+            class="contact-row"
+            href="https://www.google.com/maps/search/?api=1&query=Northamptonshire,+United+Kingdom"
+            target="_blank"
+            rel="noopener"
+          >
+            <i class="bi bi-geo-alt-fill"></i>
+            <span class="muted">Northamptonshire, United Kingdom</span>
+          </a>
+          <div class="divider"></div>
+          <div class="socials">
+            <a href="https://www.linkedin.com/in/rahulkrishnanra/" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i> in/rahulkrishnanra</a>
+            <a href="https://github.com/rahulkrishnanfs" target="_blank" rel="noopener"><i class="bi bi-github"></i> rahulkrishnanfs</a>
+            <a href="https://x.com/rahulkrishnanra" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i> rahulkrishnanra</a>
+            <a href="https://medium.com/@rahulkrishnanfs" target="_blank" rel="noopener"><i class="bi bi-medium"></i> @rahulkrishnanfs</a>
+          </div>
+        </div>
+        <a class="back-side" href="https://rahulra.dev" target="_blank" rel="noopener" style="text-decoration: none;">
+          <img
+            class="qr"
+            alt="QR code linking to rahulra.dev"
+            src="/qr.png"
+          />
+          <div class="qr-cap">Scan me</div>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      async function downloadPdf() {
+        const btn = document.getElementById('downloadBtn')
+        const original = btn.innerHTML
+        btn.disabled = true
+        btn.innerHTML = '<i class="bi bi-arrow-repeat spin"></i> Generating…'
+        try {
+          const { jsPDF } = window.jspdf
+          const cards = document.querySelector('.cards')
+          const wIn = cards.offsetWidth / 96
+          const hIn = cards.offsetHeight / 96
+          const canvas = await html2canvas(cards, {
+            scale: 4,
+            backgroundColor: '#1a1a1d',
+            useCORS: true,
+            logging: false,
+          })
+          const pdf = new jsPDF({
+            orientation: wIn >= hIn ? 'landscape' : 'portrait',
+            unit: 'in',
+            format: [wIn, hIn],
+          })
+          pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, wIn, hIn)
+          pdf.save('Rahulkrishnan-R-A-business-card.pdf')
+        } catch (err) {
+          console.error(err)
+          alert('Sorry, the PDF could not be generated. You can use Print instead.')
+        } finally {
+          btn.disabled = false
+          btn.innerHTML = original
+        }
+      }
+    </script>
   </body>
 </html>
